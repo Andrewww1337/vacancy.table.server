@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "NodeNext",
+    "sourceMap": true,
+    "outDir": "api",
+
+    "strict": true,
+    "noImplicitAny": true,
+
+    "moduleResolution": "NodeNext",
+    "baseUrl": "src",
+    "esModuleInterop": true,
+
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "lib": ["es2015"],
+  "include": ["src/**/*", "./*.ts"],
+  "exclude": ["node_modules"],
+  "files": ["./src/types/request.d.ts"]
+}
