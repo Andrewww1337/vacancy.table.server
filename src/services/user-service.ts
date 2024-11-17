@@ -14,11 +14,11 @@ export const getAllNotes = async (req: Request, res: Response) => {
 export const updateNote = async (req: Request, res: Response) => {
   try {
     const { note, id } = req.body;
-    const getUpdateNote = await NoteModel.findOneAndUpdate({ _id: id }, note, {
+    const updateUserNote = await NoteModel.findOneAndUpdate({ _id: id }, note, {
       new: true,
     });
-    if (getUpdateNote) {
-      return res.status(200).json({ note: getUpdateNote });
+    if (updateUserNote) {
+      return res.status(200).json({ note: updateUserNote });
     }
     throw new Error('Note not updated');
   } catch (error) {
@@ -44,8 +44,8 @@ export const addNote = async (req: Request, res: Response) => {
 export const deleteNote = async (req: Request, res: Response) => {
   try {
     const { ids } = req.body;
-    const getDeleteNotes = await NoteModel.deleteMany({ _id: ids });
-    if (!getDeleteNotes.acknowledged) {
+    const deleteNotes = await NoteModel.deleteMany({ _id: ids });
+    if (!deleteNotes.acknowledged) {
       throw new Error('Note not deleted');
     }
     return res.status(203).json({ ids });
